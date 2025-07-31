@@ -3,7 +3,7 @@ English Description: A complete example for running LAMMPS MD simulations using 
 
 # 🧠 Atomic-Scale Molecular Dynamics with MACE: LAMMPS Simulation Powered by Foundation Models
 
-This repository provides a complete example for running molecular dynamics (MD) simulations in [LAMMPS](https://lammps.org/) using machine learning interatomic potentials from the [MACE](https://github.com/ACEsuit/mace) large foundation model. The workflow is based on the original `ML-MACE` interface and optimized for high-performance computing (e.g., SCNet.cn).
+This repository provides a complete example for running molecular dynamics (MD) simulations in [LAMMPS](https://lammps.org/) using machine learning interatomic potentials from the [MACE](https://github.com/ACEsuit/mace) foundation model. The workflow is based on the original `ML-MACE` interface and is compatible with HPC platforms like SCNet.cn.
 
 ---
 
@@ -12,16 +12,22 @@ This repository provides a complete example for running molecular dynamics (MD) 
 | File | Description |
 |------|-------------|
 | `OOD-SR.data` | Example atomic structure file in LAMMPS `data` format |
-| `mace-lmp.in` | LAMMPS input script for NVT MD simulation using MACE |
-| `mace-mpa-0-medium.model-lammps.pt` | Pre-converted medium foundation model for LAMMPS |
-| `lammps.slurm` | SLURM job submission script for SCNet HPC platform |
+| `mace-lmp.in` | LAMMPS input script for MD simulation |
+| `lammps.slurm` | SLURM job submission script for SCNet HPC |
+
+⚠️ The model file `mace-mpa-0-medium.model-lammps.pt` is not included in this repository due to its large file size, which exceeds GitHub's upload limit. You can obtain it in one of the following ways:
+
+1. Email the author at **liuxiaoq1994@gmail.com** to request the file directly;
+2. Follow the instructions in our WeChat tutorial to download and convert the MACE model yourself.
+
+Once you have all the necessary files, upload them to your HPC workspace and submit the simulation job.
 
 ---
 
-## 🚀 Quick Start (SCNet Compatible)
+## 🚀 Quick Start (for SCNet.cn)
 
-1. Ensure you have a LAMMPS binary compiled with the `ML-MACE` pair style.
-2. Upload all files to your working directory on SCNet or similar HPC system.
+1. Make sure your LAMMPS build supports the `ml-mace` pair style;
+2. Upload the required files to your cluster directory;
 3. Submit the job with:
 
 ```bash
